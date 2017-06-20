@@ -2,5 +2,39 @@
   <div class="jumbotron">
     <h1>Bienvenido!</h1>
     <p>Carlos Rojas Burgos</p>
+    <h2>Formulario</h2>
+    <%= form_tag(action: "new_user") do %>
+      <div>
+        <%= label_tag :name, "Nombre" %>
+        <%= text_field_tag :name, nil, class:"form-control" %>
+      </div>
+      <div>
+        <%= label_tag :email, "E-mail" %>
+        <%= text_field_tag :email, nil, class:"form-control"%>
+      </div>
+      <div>
+        <%= label_tag :age, "Edad" %>
+        <%= number_field_tag :age, nil, class:"form-control"%>
+      </div>
+      <div>
+        <%= submit_tag "Enviar"%>   
+      </div>
+    <% end %>
+
+    <hr>
+
+    <%= form_tag(pages_pagina_x_path, method: :get) do %>
+      <div>
+        <%= label_tag :query, "Buscar" %>
+        <%= text_field_tag :query %>
+        <%= submit_tag "Buscar Usuario"%> 
+      </div>
+    <% end %>
+
+    <ul>
+      <% @users.each do |user| %>
+       <li><%= user.name %></li>
+      <% end %>
+    </ul>
   </div>
 </div>
